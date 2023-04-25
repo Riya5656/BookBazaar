@@ -1,13 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import Welcome from './components/Welcome';
 
 
-
-export default function App() {
+export default function Home() {
   return (
     <View style={styles.container}>
-      <Welcome />
+      <Text>Home this is</Text>
     </View>
   );
 }
