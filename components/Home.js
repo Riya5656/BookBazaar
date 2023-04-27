@@ -1,10 +1,39 @@
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Image,ScrollView,TouchableOpacity } from 'react-native';
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 
 
 export default function Home() {
+  const data = [
+    {
+      id:1,
+      image: require("../assets/book1.jpg"),
+      title: 'Amalfi Coast',
+      cost: 'Rs.500',
+    },
+    {
+      id:2,
+      image: require("../assets/book1.jpg"),
+      title: 'Amalfi Coast',
+      cost: 'Rs.500',    },
+    {
+      id:3,
+      image: require("../assets/book1.jpg"),
+      title: 'Amalfi Coast',
+      cost: 'Rs.500',    },
+    {
+      id:4,
+      image: require("../assets/book1.jpg"),
+      title: 'Amalfi Coast',
+      cost: 'Rs.500',    },
+    {
+      id:5,
+      image: require("../assets/book1.jpg"),
+      title: 'Amalfi Coast',
+      cost: 'Rs.500',    },
+  ]
   return (
+    <ScrollView>
     <View style={styles.container}>
       <Ionicons style={styles.ham} name="menu-outline" size={30} color="black" />
       <Text style={styles.logo}>BookBazaar</Text>
@@ -18,8 +47,20 @@ export default function Home() {
       </View>
       <View>
         <Text style={styles.popular} >Popular Books</Text>
+        {data.map((item)=>{
+          return(
+            <TouchableOpacity >
+            <View styles={styles.card} key={item.id}>
+            <View style={styles.imageBox}>
+              <Image style={styles.image} source={item.image}/>
+            </View>
+            </View>
+            </TouchableOpacity>
+          )
+        })}
       </View>
     </View>
+    </ScrollView>
     
   );
 }
@@ -90,6 +131,25 @@ const styles = StyleSheet.create({
     fontWeight:"bold",
     marginTop:30,
     marginLeft:20,
+
+  },
+
+  // card:{
+  //   marginTop:30,
+  //   width:100,
+  //   height:220,
+  //   marginBottom:10,
+
+  // },
+  image:{
+    width:100,
+    height:200,
+  },
+  imageBox:{
+    width:100,
+    height:220,
+    marginBottom:10,
+    marginLeft:30,
 
   }
 });
